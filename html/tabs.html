@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js切换tab</title>
+    <link rel="stylesheet" href="../css/DiBuDaoHang.css">
+	<link rel="stylesheet" href="../css/DaoHangLan.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            /* background-color: #a4d38b; */
+            /* background-color: #c8b1e4; */
+            background-color: #dac7ff;
+        }
+		#long-wz {
+			position: relative;
+			width: 64%;
+			color: rebeccapurple;
+/*			background-color: antiquewhite;*/
+			padding-bottom: 5px;
+			padding-top: 5px;
+			margin: auto;
+/*			border-bottom-left-radius: 10px;*/
+/*			border-bottom-right-radius: 10px;*/
+			border-bottom:2px dashed #576574;
+		}
+		#long-wz::before {
+			content: '';
+			position: absolute;
+			width: 9%;
+			height: 4px;
+			background-color: #8395a7;
+			top: 51px;
+			transition: 0.3s; 
+		}
+		#long-wz:hover::before {
+			width: 100%;
+		}
+        .tab-control {
+            width: 64%;
+            height: 500px;
+            /* background: red; */
+            margin: 70px auto 60px;
+        }
+        .tab-item {
+            width: 620px;
+            height: 60px;
+            /* background-color: bisque; */
+        }
+        .tab-item div {
+            width: 155px;
+            height: 60px;
+            /* background-color: blue; */
+            color: #424242;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 60px;
+            cursor: pointer;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            /* 去除由空格产生的间隙 */
+            float: left;
+        }
+
+        .tab-item div:hover {
+            background-color: #86b0df;
+            /* background-color: #80cbc4; */
+        }
+
+        .active {
+            background-color: #86b0df;
+        }
+        .tab-content {
+            width: 100%;
+            height: 420px;
+            background-color: #86b0df;
+            border: 1px solid transparent;
+            box-sizing: border-box;
+        }
+        .tab-content div {
+/*            width: 680px;*/
+			width: 80%;
+            height: 340px;
+            background-color: #653b96;
+            margin: 40px auto;
+            display: none;
+            padding: 30px;
+            box-sizing: border-box;
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 25px;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        li {
+/*            list-style: inside;*/
+			list-style: none;
+        }
+
+        .prev:hover,
+        .next:hover {
+            color: #512d62e8;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var tabItem = document.getElementsByClassName("tab-item");
+            var item = tabItem[0].getElementsByTagName("div");
+
+            var tabContent = document.getElementsByClassName("tab-content");
+            var content = tabContent[0].getElementsByTagName("div");
+
+            //给三个选项添加点击事件
+            for (let i = 0; i < item.length; i++) {
+                //记录当前选项下标
+                item[i].index = i;
+                item[i].onclick = function () {
+                    // alert(this);
+
+                    //清除其他的样式
+                    for (let j = 0; j < item.length; j++) {
+                        item[j].className = "";
+                        content[j].style.display = "none";
+                    }
+                    this.className = "active";
+                    content[item[i].index].style.display = "block";
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+	<!--一个变长效果-->
+	<h1 id="long-wz">
+		Tabs
+	</h1>
+	<!--js切换tab效果-->
+    <div class="tab-control">
+        <div class="tab-item">
+            <div class="active">简介</div>
+            <div>经历</div>
+            <div>人物关系</div>
+            <div>技能</div>
+        </div>
+
+        <div class="tab-content">
+            <div style="display: block">
+                南通职业大学学生，目前在大二，数字媒体应用技术专业，最近因为疫情，本应该去学校上课，现在不得不居家上网课。<br />
+                不过感觉问题不大，到哪上都差不多，虽然居住地目前经常要求核酸检测，大早上去排队，因为防疫事关重大，为了人民群众的安全，我们需要积极抗疫！
+            </div>
+
+            <div>
+                刘赢，出生于浙江衢州的一家医院，小时候因为父母工作变动，四处奔走，最后定居在苏州。<br />
+                经过小学6年，初中3年，中考，高中3年，高考之后来到了南通上大专，现在不知不觉21岁了。
+            </div>
+
+            <div>
+                <ul>
+                    <li>父亲：xxx(来自安徽)</li>
+                    <li>母亲：xxx(来自浙江)</li>
+                    <li>表哥：xxx(来自浙江)</li>
+                    <li>老舅：xxx(来自浙江)</li>
+                    <li>大姨：xxx(来自浙江)</li>
+                </ul>
+            </div>
+
+            <div>
+                偶尔去踢踢足球，虽然经常被队车吊打，但作为散客早已习惯。<br />
+                时间：一般在晚上。<br />
+                状态：时好时坏，目前基本没有很好的状态。
+            </div>
+        </div>
+    </div>
+
+    <!-- PREV/NEXT -->
+    <div class="dibudh">
+        <a href="course.html">
+            <span class="prev">←PREV</span>
+        </a>
+        <a href="myself.html">
+            <span class="next">NEXT→</span>
+        </a>
+    </div>
+	
+	<!-- 右侧导航栏 -->
+    <div class="rightbar">
+        <a href="../index.html">
+            <div class="rightbar1">One</div>
+        </a>
+        <a href="secondary_page.html">
+            <div class="rightbar2">Two</div>
+        </a>
+        <a href="#">
+            <div class="rightbar3">Three</div>
+        </a>
+        <a href="course.html">
+            <div class="rightbar4">Four</div>
+        </a>
+        <a href="tabs.html">
+            <div class="rightbar5" style="color: pink;">Five</div>
+        </a>
+        <a href="myself.html">
+            <div class="rightbar6">Six</div>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三级页面</title>
+    <link rel="stylesheet" href="../css/DaoHangLan.css" />
+    <link rel="stylesheet" href="../css/DiBuDaoHang.css">
+    <link rel="stylesheet" href="../css/BackToTop.css">
+    <!-- 引入Font class字体图标 -->
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3061954_8i7vuqee1mn.css">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            /* background-color: #e8ffe8; */
+            background-color: #e2eafc;
+        }
+
+        .zong {
+            max-width: 82%;
+            /* 可以给背景盒子一个高度,目前是通过子盒子来撑开 */
+            /* height: 3500px; */
+            box-sizing: border-box;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(230, 209, 235);
+        }
+
+        .you img {
+            position: relative;
+            top: 50%;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            transform: translateY(-50%);
+        }
+
+        /* wai最为父盒子包裹住左中右三个盒子 */
+        .wai {
+            width: 100%;
+            height: 350px;
+            /* background-color: skyblue; */
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .zuo {
+            width: 40%;
+            height: 80%;
+            /* background-color: #ccc; */
+        }
+
+        .zhong {
+            width: 15%;
+            height: 80%;
+            /* background-color: #fff; */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .zhong p {
+            background-color: pink;
+            width: 90%;
+            height: 60px;
+            background-color: #9d4edd;
+            color: #f9ca24;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 200%;
+            font-weight: 700;
+            /* 上下分配相同的距离,应该是借助上面zhong的flex来实现*/
+            margin: auto;
+            /* 这个1,2,3..矩形框要在中线上面显示 */
+            z-index: 1;
+        }
+
+        .you {
+            width: 40%;
+            height: 80%;
+            background-color: rgb(195, 224, 100);
+            border-radius: 20px;
+            /* 居中图片 */
+            text-align: center;
+            /* 万一有溢出的部分图片则隐藏 */
+            overflow: hidden;
+        }
+
+        /* flex子项的默认order属性值是0 */
+        /* 1,3...奇数行中的图片通过order: -1;在主轴上排序到第1个来显示 */
+        .wai:nth-child(odd) .you,
+        .wai:nth-child(odd) .you,
+        .wai:nth-child(odd) .you,
+        .wai:nth-child(odd) .you {
+            order: -1;
+        }
+
+        .wai:nth-child(odd) .zhong,
+        .wai:nth-child(odd) .zhong,
+        .wai:nth-child(odd) .zhong,
+        .wai:nth-child(odd) .zhong {
+            order: 0;
+        }
+
+        .wai:nth-child(odd) .zuo,
+        .wai:nth-child(odd) .zuo,
+        .wai:nth-child(odd) .zuo,
+        .wai:nth-child(odd) .zuo {
+            order: 1;
+        }
+
+        /* 中线 */
+        .xian {
+            position: absolute;
+            width: 5px;
+            background-color: #9d4edd;
+            z-index: 0;
+            height:2600px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+
+        /* 校园主题栏 */
+        .sch {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100px;
+            background-color: #f2e9e4;
+            color: #aad576;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 100px;
+            font-size: 6rem;
+            letter-spacing: 10px;
+            font-weight: 600;
+        }
+
+        .sch::after {
+            font-weight: 600;
+            content: "SCHOOL";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: transparent;
+            /* 将颜色剪切到文字中 */
+            background-clip: text;
+            -webkit-background-clip: text;
+            /* 从左到右给个颜色渐变 */
+            background-image: linear-gradient(
+                to right,
+                #fface4,
+                #9b72cf,
+                #fface4
+            );
+            /* clip-path: circle(6% at 50% 55%); */
+            /* infinite无限循环运动 */
+            animation: move 6s infinite ease-in-out;
+        }
+        @keyframes move {
+            /* circle是将元素剪切为一个圆形，如clip-path: circle(6% at 36% 55%)，6%这里表示圆的直径是屏幕宽的6%，36% 55%表示圆心(x,y)的位置，x是屏幕宽从左到右边36%，y是父元素高度100px从上往下55%。 */
+            /* 通过x轴坐标百分数的变化实现圆心位置的移动 */
+            0% {
+                clip-path: circle(6% at 36% 55%);
+            }
+            50% {
+                clip-path: circle(6% at 65% 55%);
+            }
+            100% {
+                clip-path: circle(6% at 36% 55%);
+            }
+        }
+
+        .prev:hover,
+        .next:hover {
+            color: #48245ae8;
+        }
+    </style>
+</head>
+<body>
+    <!-- 右侧导航栏 -->
+    <div class="rightbar">
+        <a href="../index.html">
+            <div class="rightbar1">One</div>
+        </a>
+        <a href="secondary_page.html">
+            <div class="rightbar2">Two</div>
+        </a>
+        <a href="#">
+            <div class="rightbar3" style="color: pink;">Three</div>
+        </a>
+        <a href="course.html">
+            <div class="rightbar4">Four</div>
+        </a>
+        <a href="tabs.html">
+            <div class="rightbar5">Five</div>
+        </a>
+        <a href="myself.html">
+            <div class="rightbar6">Six</div>
+        </a>
+    </div>
+
+
+    <!-- 校园图 -->
+    <div class="zong">
+        <!-- 中线 -->
+        <div class="xian"></div>
+
+        <!-- 顶部校园主题栏 -->
+        <div class="sch">
+            SCHOOL
+        </div>
+
+        <!-- 校园图开始 -->
+        <div class="wai">
+            <div class="zuo"></div>
+            <div class="zhong">
+                <p>1</p>
+            </div>
+            <div class="you">
+                <img src="../images/tertiary_page/校园 (1).jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="wai">
+            <div class="zuo"></div>
+            <div class="zhong">
+                <p>2</p>
+            </div>
+            <div class="you">
+                <img src="../images/tertiary_page/校园 (2).jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="wai">
+            <div class="zuo"></div>
+            <div class="zhong">
+                <p>3</p>
+            </div>
+            <div class="you">
+                <img src="../images/tertiary_page/校园 (3).jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="wai">
+            <div class="zuo"></div>
+            <div class="zhong">
+                <p>4</p>
+            </div>
+            <div class="you">
+                <img src="../images/tertiary_page/校园 (4).jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="wai">
+            <div class="zuo"></div>
+            <div class="zhong">
+                <p>5</p>
+            </div>
+            <div class="you">
+                <img src="../images/tertiary_page/校园 (5).jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="wai">
+            <div class="zuo"></div>
+            <div class="zhong">
+                <p>6</p>
+            </div>
+            <div class="you">
+                <img src="../images/tertiary_page/校园 (6).jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="wai">
+            <div class="zuo"></div>
+            <div class="zhong">
+                <p>7</p>
+            </div>
+            <div class="you">
+                <img src="../images/tertiary_page/校园 (7).jpg" alt="" />
+            </div>
+        </div>
+
+        <div class="wai">
+            <div class="zuo"></div>
+            <div class="zhong">
+                <p>8</p>
+            </div>
+            <div class="you">
+                <img src="../images/tertiary_page/校园 (8).jpg" alt="" />
+            </div>
+        </div>
+
+        <!-- 返回顶部线 -->
+        <div class="db">
+            <!-- 返回顶部字体图标 -->
+            <a href="#top" class="db1">
+                <i class="iconfont icon-jiantou-xiangshang"></i>
+            </a>
+        </div>
+
+        <!-- PREV/NEXT -->
+        <div class="dibudh">
+            <a href="secondary_page.html">
+                <span class="prev">←PREV</span>
+            </a>
+            <a href="course.html">
+                <span class="next">NEXT→</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

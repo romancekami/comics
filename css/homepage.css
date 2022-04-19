@@ -1,0 +1,698 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #577996;
+}
+
+/* 顶部渐变文字 */
+.sch {
+    width: 84%;
+    background-color: #28334b;
+    /* background-color: #3e2e53; */
+    height: 120px;
+    line-height: 120px;
+    font-size: 6.5rem;
+}
+.sch::after {
+    content: "HOMEPAGE";
+    animation: move 7.2s infinite ease-in-out;
+}
+@keyframes move {
+    /* circle是将元素剪切为一个圆形，如clip-path: circle(6% at 36% 55%)，6%这里表示圆的直径是屏幕宽的6%，36% 55%表示圆心(x,y)的位置，x是屏幕宽从左到右边36%，y是父元素高度100px从上往下55%。 */
+    /* 通过x轴坐标百分数的变化实现圆心位置的移动 */
+    0% {
+        clip-path: circle(6% at 32% 55%);
+    }
+    50% {
+        clip-path: circle(6% at 69% 55%);
+    }
+    100% {
+        clip-path: circle(6% at 32% 55%);
+    }
+}
+
+/* 顶部横导航栏 */
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    background-color: #778ca3;
+    width: 84%;
+    height: 60px;
+    margin: 15px auto;
+    z-index: 4;
+    /* justify-content: space-around; */
+    /* flex-shrink: 1; */
+}
+
+header > a {
+    text-align: center;
+    line-height: 60px;
+    font-size: 2.2rem;
+    font-weight: 600;
+    flex: 1;
+    color: #2f3542;
+}
+header > a:hover {
+    background-color: rgb(146, 194, 233);
+    color: #6d1010;
+}
+header > a:nth-child(4) {
+    flex: 1.7;
+    /* background-color: rgb(146, 194, 233); */
+    /* color: pink; */
+    font-size: 4rem;
+}
+
+/* home闪亮效果 */
+header > a > .xpath {
+    /* background-color: #522929; */
+    position: relative;
+    overflow: hidden;
+}
+.xpath::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: skewX(45deg) translateX(-4rem);
+    transition: 0.5s;
+}
+.xpath:hover::before {
+    transform: skewX(45deg) translate(11rem);
+}
+
+.zhanwei1 {
+    position: relative;
+    /* background-color: rgb(167, 126, 91); */
+    width: 84%;
+    /* height: 1128px; */
+    height: 985px;
+    margin: 15px auto 30px;
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    flex-wrap: nowrap;
+}
+/* 竖导航栏 */
+.shudao {
+    background-color: rgb(145, 121, 145);
+    height: 380px;
+    display: flex;
+    width: 16%;
+    flex-direction: column;
+    /* margin-right: 15px; */
+    /* justify-content: space-between; */
+    /* flex-grow: 1; */
+}
+.shudao > a {
+    background-color: #434e66;
+    text-align: center;
+    width: 100%;
+    font-size: 1.6rem;
+    /* font-weight: 500; */
+    letter-spacing: 1px;
+    color: #c6c2c2;
+    flex-grow: 1;
+    line-height: 2.1;
+    position: relative;
+    transition: 0.1s;
+}
+.shudao > a:first-child {
+    background-color: rgb(224, 224, 235);
+    color: #2f3542;
+    transition: 0.4s 0.1s;
+}
+.shudao:hover a:first-child {
+    background-color: #434e66;
+    color: #c6c2c2;
+}
+.shudao > a:hover {
+    color: #2f3542 !important;
+    background-color: rgb(224, 224, 235) !important;
+    /* background-color: rgb(160, 166, 221); */
+}
+
+/* .homedb::before{
+    content: "";
+    background-color: rgba(110, 106, 106, 0.52);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    left: 0;
+    top: 50px;
+} */
+/* .bianse {
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    z-index: 65;
+    top: 30px;
+    background-color: skyblue;
+} */
+/* .shudao a:nth-child(2):hover~.bianse{
+    height: 10px;
+    background-color: pink!important;
+} */
+
+/* 轮播图 */
+#wrap ul {
+    list-style: none;
+}
+#wrap {
+    position: relative;
+    background-color: rgb(109, 114, 112);
+    /* width: 60%; */
+    width: 668px;
+    height: 380px;
+    margin-right: 1.4%;
+    margin-left: 1.4%;
+    /* 空间有剩余时扩大轮播图填充剩余 */
+    /* flex-grow: 1; */
+    overflow: hidden;
+}
+#wrap .img-list img {
+    width: 668px;
+    cursor: pointer;
+}
+#wrap .img-list {
+    display: flex;
+    position: relative;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease;
+    background-color: pink;
+}
+
+#wrap > .arrow a {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: block;
+    width: 32px;
+    height: 54px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    user-select: none;
+    font-size: 25px;
+    text-align: center;
+    line-height: 54px;
+    text-decoration: none;
+}
+
+#wrap > .arrow a.left {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+#wrap > .arrow a.right {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.circle-list {
+    /* background-color: #2a1f33; */
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: fit-content;
+    height: fit-content;
+    z-index: 8;
+}
+.circle-list > .circle {
+    margin: 0 4px;
+    width: 24px;
+    height: 24px;
+    background-color: #ecf0f1;
+    border-radius: 50%;
+}
+
+.circle-list > .circle.active {
+    background-color: #e74c3c;
+}
+
+/* 右侧图片 */
+.topri {
+    position: sticky;
+    top: 60px;
+    right: 0;
+    width: 21%;
+    height: 510px;
+    /* background-color: rgb(75, 68, 68); */
+    background: url(../images/homepage/三部动漫图/死亡笔记三5.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* 轮播图下的长条图片 */
+.longim {
+    position: absolute;
+    background-color: #333;
+    width: 77.6%;
+    height: 115px;
+    left: 0;
+    top: 395px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background: url(../images/homepage/轮播图/黑契轮播2.jpg) no-repeat;
+    background-size: cover;
+    background-position: -330px;
+    background-attachment: fixed;
+}
+
+/* 几个动漫 */
+.dongman {
+    position: absolute;
+    left: 0;
+    top: 525px;
+    background-color: #333;
+    width: 77.6%;
+    height: 460px;
+}
+.dongman1 {
+    /* background-color: #2f3542; */
+    background-color: #30305da8;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    color: #cecece;
+    text-align: right;
+    font-size: 300%;
+    line-height: 60px;
+    padding-right: 4.8%;
+    user-select: none;
+}
+.dongman2 {
+    display: flex;
+    background-color: rgba(94, 42, 109, 0.37);
+    width: 100%;
+    height: 400px;
+    justify-content: space-around;
+    align-items: center;
+}
+.dongman2 a {
+    /* position: relative; */
+    background-color: peru;
+    width: 24%;
+    height: 74%;
+}
+.dongman1:hover {
+    color: #ab7de0;
+}
+.man1 {
+    background: url(../images/homepage/三部动漫图/吸血鬼猎人D三3.jpg);
+    background-position: right;
+}
+.man2 {
+    background: url(../images/homepage/三部动漫图/地域之歌三1b.jpeg);
+    background-position: top;
+}
+.man3 {
+    background: url(../images/homepage/三部动漫图/死亡笔记7.jpg);
+    background-position: right;
+}
+.dongmana {
+    position: relative;
+    background-color: rgb(155, 155, 54);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    font-size: large;
+    color: rgba(239, 240, 225, 0.863);
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+.dongmana p {
+    line-height: 1.4;
+    /* 设置文字竖直排列 */
+    writing-mode: vertical-lr;
+    padding: 5px 0;
+    height: fit-content;
+    background-color: rgb(56, 68, 109);
+}
+.dongmana:hover p {
+    font-weight: 600;
+    font-size: 105%;
+}
+.dongmana::before {
+    content: "";
+    /* display: block; */
+    box-sizing: border-box;
+    position: absolute;
+    background-color: #d7ccdf4b;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    /* 剪切成三角形 */
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    /* 梯形 */
+    /* clip-path: polygon(0 100%, 0 90%, 100% 10%, 100% 100%); */
+    /* transform-origin: left bottom; */
+    /* transform: rotate(75deg); */
+    transition: 0.3s;
+    text-align: right;
+    padding: 1% 4% 0 0;
+    font-size: 240%;
+    font-weight: 500;
+    /* 设置文本横向排列 */
+    writing-mode: horizontal-tb;
+}
+.dongmana:nth-of-type(2)::before {
+    height: 100%;
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    /* background-color: yellowgreen; */
+}
+.dongmana:nth-of-type(3)::before {
+    height: 100%;
+    /* background-color: yellowgreen; */
+}
+.dongmana:hover::before {
+    height: 20%;
+    content: ">";
+    color: #2a1f33;
+    /* transform: rotate(34.8deg); */
+    /* background-color: pink; */
+}
+
+.dongmana::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.12;
+    transition: 0.5s;
+}
+.dongmana:hover::after {
+    opacity: 0;
+}
+
+/* 隔开部分 */
+.gekai {
+    position: relative;
+    background-color: #8a9bb1;
+    width: 84%;
+    margin: auto;
+    height: 100px;
+}
+.gekai:before {
+    content: "m-o-r-e-o-v-e-r";
+    /* background-color: pink; */
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    height: 100%;
+    line-height: 80px;
+    color: #fff;
+    font-size: 6rem;
+    font-weight: 600;
+    letter-spacing: 1rem;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.2s steps(30) infinite;
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 95%;
+    }
+}
+
+/* 三个动漫介绍 */
+.san {
+    background-color: #18251d;
+    width: 84%;
+    margin: 30px auto 0;
+    height: 1010px;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.san1,
+.san2,
+.san3 {
+    /* background-color: #a3c2e4; */
+    background-color: rgba(154, 206, 154, 0.191);
+    width: 70%;
+    height: 300px;
+    backdrop-filter: blur(5px);
+    /* box-shadow: 2px 2px 15px 5px rgb(80, 139, 46); */
+}
+.san2 {
+    /* position: relative; */
+    margin: 30px 0;
+    margin-left: 30%;
+}
+.san1:hover,
+.san2:hover,
+.san3:hover {
+    box-shadow: 2px 2px 10px 6px rgb(147, 185, 63);
+    background-color: rgba(152, 226, 163, 0.4);
+}
+.imghid {
+    background-color: rgba(241, 166, 68, 0.815);
+    overflow: hidden;
+    width: 30%;
+    height: 100%;
+    display: inline-block;
+}
+.san > .san2 > .imghid {
+    margin-left: 70%;
+}
+.nei1,
+.nei2,
+.nei3 {
+    background-color: pink;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+    /* display: inline-block; */
+}
+.nei1 {
+    background: url(../images/homepage/三部动漫图/吸血鬼猎人D三1.jpg) no-repeat;
+    background-position: top;
+    background-size: cover;
+}
+.nei2 {
+    background: url(../images/homepage/三部动漫图/地狱之歌三2a.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+.nei3 {
+    background: url(../images/homepage/三部动漫图/死亡笔记三3a.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.nei1:hover,
+.nei2:hover,
+.nei3:hover {
+    transform: scale(1.15);
+}
+.wenzi {
+    /* background-color: rgb(218, 33, 33); */
+    position: relative;
+    width: 62%;
+    left: 34%;
+    bottom: 300px;
+    line-height: 2;
+    font-size: large;
+    margin-top: 2%;
+    color: rgb(222, 233, 218);
+}
+.san2 .wenzi:nth-of-type(2) {
+    left: 4%;
+}
+
+/* 钻石布局 */
+/* .zuanshi {
+    background-color: #222;
+    width: 84%;
+    height: 820px;
+    margin: auto;
+    position: relative;
+    top: 30px;
+} */
+
+/* 银翼杀手 */
+.yinyi {
+    background-color: rgb(42, 27, 19);
+    position: relative;
+    top: 50px;
+    width: 84%;
+    height: 580px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.rao {
+    position: relative;
+    /* background-color: pink; */
+    width: 32%;
+    height: 62%;
+    display: flex;
+    justify-content: center;
+}
+.rao1 {
+    /* background-color: chocolate; */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #fff;
+    /* 设置不规则边框，值自己调 */
+    border-radius: 38% 62% 63% 37%/ 41% 44% 56% 59%;
+    transition: 0.7s;
+    animation: raodong 10s infinite linear;
+}
+.rao1::after,
+.rao1::before {
+    /* background-color: olivedrab; */
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px #fff solid;
+    transition: 0.7s;
+    border-radius: 38% 62% 63% 37%/ 41% 44% 56% 59%;
+    animation: raodong 8s infinite linear;
+}
+/* 覆盖上面before的动画 现在一共是3个圈在一起转 */
+.rao1::before {
+    animation: raodong 6s infinite linear;
+}
+@keyframes raodong {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.rao:hover .rao1,
+.rao:hover .rao1::before,
+.rao:hover .rao1:after {
+    /* 这边想要更炫酷的话可以弄3个不同的颜色 */
+    background-color: rgb(231, 231, 231);
+    opacity: 0.8;
+}
+.rao2 {
+    /* background-color: #6c6d3b; */
+    position: relative;
+    padding: 20% 11%;
+    text-align: center;
+    z-index: 3;
+}
+.rao2 p {
+    margin: auto;
+    /* background-color: #6d1010; */
+    width: 100%;
+    line-height: 1.7;
+    font-size: large;
+    color: seashell;
+    letter-spacing: 0.5px;
+    transition: 0.5s;
+}
+.rao2 h2 {
+    margin-bottom: 8px;
+    color: rgb(255, 243, 219);
+    transition: 0.8s;
+}
+.rao2 span {
+    position: relative;
+    display: inline-block;
+    border: 2px solid #fff;
+    margin-top: 10px;
+    padding: 4px 8px;
+    border-radius: 38% 62% 60% 37%/ 41% 44% 50% 59%;
+    background-color: #cecece;
+    font-size: large;
+    transition: 0.5s;
+    letter-spacing: 0;
+}
+.rao2:hover h2 {
+    color: #522929;
+}
+.rao2:hover p {
+    color: #251b1b;
+}
+.rao2:hover span {
+    border: 0;
+    color: rgb(42, 58, 32);
+    background-color: #6c7a9bcb;
+}
+
+.yinyiwz {
+    background-color: rgba(97, 63, 59, 0.349);
+    color: #c4c4c4;
+    box-sizing: border-box;
+    width: 52%;
+    height: 60%;
+    padding: 5% 2%;
+    border-radius: 3px;
+}
+.yinyiwz p {
+    font-size: large;
+    word-spacing: 4px;
+    margin-bottom: 15px;
+}
+.yinyiwz h2,
+span {
+    font-weight: 500;
+    font-size: 120%;
+    line-height: normal;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+.yinyiwz > span {
+    float: right;
+    letter-spacing: 0;
+}
+
+/* 底部页脚 */
+.yejiao {
+    background-color: rgb(67, 78, 102);
+    width: 84%;
+    height: 100px;
+    position: relative;
+    margin: auto;
+    top: 100px;
+    z-index: 3;
+    font-size: large;
+    color: #cecece;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.yejiao > p {
+    /* background-color: #6d1010; */
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto 0;
+}
+/* .yejiao > p:nth-child(2) { */
+/* background-color: #6d1010; */
+/* position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: 55px auto 0;
+} */

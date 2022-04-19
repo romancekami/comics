@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homepage</title>
+    <link rel="stylesheet" href="css/渐变文字.css" />
+    <link rel="stylesheet" href="css/rom渐变.css" />
+    <link rel="stylesheet" href="css/homepage.css  " />
+    <link rel="stylesheet" href="css/BackToTop.css" />
+    <link rel="stylesheet" href="css/DaoHangLan.css" />
+    <link rel="stylesheet" href="css/DiBuDaoHang.css" />
+    <!-- 引入Font class字体图标 -->
+    <link
+        rel="stylesheet"
+        href="https://at.alicdn.com/t/font_3061954_8i7vuqee1mn.css"
+    />
+    <style>
+        .db {
+            background-color: #381d1dc5;
+            left: 4%;
+            /* z-index: 4; */
+        }
+        .db1 {
+            left: 4.03%;
+            color: #381d1dc5;
+        }
+
+        .rightbar {
+            opacity: 1;
+        }
+        .rightbar1 {
+            background-color: #031d4e;
+        }
+        .rightbar2 {
+            background-color: #072557;
+        }
+        .rightbar3 {
+            background-color: #0b2d60;
+        }
+        .rightbar4 {
+            background-color: #0e3569;
+        }
+        .rightbar5 {
+            background-color: #123d72;
+        }
+        .rightbar6 {
+            background-color: #15457b;
+        }
+
+        .dibudh {
+            height: fit-content;
+            background-color: #37435c;
+            width: 100%;
+            /* top: 10px; */
+        }
+        .dibudh a {
+            color: #cecece;
+        }
+        .next,
+        .prev {
+            font-weight: 400;
+        }
+        .prev:hover,
+        .next:hover {
+            color: #8ac6ff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部others主题栏 -->
+    <div class="sch">HOMEPAGE</div>
+    <!-- 横导航栏 -->
+    <header>
+        <a href="#">
+            <div class="xpath">home</div>
+        </a>
+        <a href="html/secondary_page.html">
+            <div>cartoon</div>
+        </a>
+        <a href="html/tertiary_page.html">
+            <div>school</div>
+        </a>
+        <a href="https://www.bilibili.com/video/BV1JA411373B">
+            <div class="rom">Rom</div>
+        </a>
+        <a href="html/course.html">
+            <div>course</div>
+        </a>
+        <a href="html/tabs.html">
+            <div>tabs</div>
+        </a>
+        <a href="html/myself.html">
+            <div>myself</div>
+        </a>
+    </header>
+
+    <div class="zhanwei1">
+        <!-- 竖导航栏 -->
+        <div class="shudao">
+            <a href="#" class="homedb">
+                <div>HOME</div>
+            </a>
+            <a href="html/secondary_page.html">
+                <div>CARTOON</div>
+            </a>
+            <a href="html/tertiary_page.html">
+                <div>SCHOOL</div>
+            </a>
+            <a href="https://www.bilibili.com/video/BV1JA411373B">
+                <div>ROM</div>
+            </a>
+            <a href="html/course.html">
+                <div>COURSE</div>
+            </a>
+            <a href="html/tabs.html">
+                <div>TABS</div>
+            </a>
+            <a href="html/myself.html">
+                <div>MYSELF</div>
+            </a>
+            <div class="bianse"></div>
+        </div>
+
+        <!-- 轮播图 -->
+        <div id="wrap">
+            <div class="img-list">
+                <a href="#yy">
+                    <img src="images/homepage/轮播图/yya.jpg" />
+                </a>
+                <a href="html/secondary_page.html#jf">
+                    <img src="images/homepage/轮播图/jfa.jpg" />
+                </a>
+                <a href="#xx">
+                    <img src="images/homepage/轮播图/xxa.jpg" />
+                </a>
+                <a href="#dy">
+                    <img src="images/homepage/轮播图/dya.jpg" />
+                </a>
+                <a href="#sw">
+                    <img src="images/homepage/轮播图/swa.jpg" />
+                </a>
+            </div>
+
+            <!-- 小箭头 -->
+            <div class="arrow">
+                <a href="javascript:;" class="left">&gt;</a>
+                <a href="javascript:;" class="right">&lt;</a>
+            </div>
+
+            <!-- 小圆点 -->
+            <ul class="circle-list">
+                <li class="circle active" data-n="0"></li>
+                <li class="circle" data-n="1"></li>
+                <li class="circle" data-n="2"></li>
+                <li class="circle" data-n="3"></li>
+                <li class="circle" data-n="4"></li>
+            </ul>
+        </div>
+        <script>
+            window.addEventListener("load", function () {
+                // 获取左右按钮和图片列表
+                let oLeft = document.querySelector(".left");
+                let oRight = document.querySelector(".right");
+                let oImgList = document.querySelector(".img-list");
+
+                // 克隆第一张图片
+                let clonefirstImg =
+                    oImgList.firstElementChild.firstElementChild.cloneNode();
+                // 将第一张图片添加至图片列表的末尾
+                oImgList.appendChild(clonefirstImg);
+
+                // 图片索引 代表当前是第几张图片  index:0代表第一张图片
+                let index = 0;
+
+                // 设置函数节流锁
+                let lock = true;
+                function handleRightBtn() {
+                    if (!lock) return;
+                    index++;
+                    oImgList.style.left = index * -668 + "px";
+                    // 加过渡,因为切换到了最后一张假图时会将过渡去掉
+                    oImgList.style.transition = "0.5s ease";
+
+                    if (index === 5) {
+                        index = 0;
+                        setTimeout(() => {
+                            oImgList.style.left = 0;
+                            // 取消过渡 500毫秒之后切换第一张
+                            oImgList.style.transition = "none";
+                        }, 500);
+                    }
+
+                    // 设置小圆点的高亮
+                    setCircles();
+                    // 关锁
+                    lock = false;
+                    setTimeout(() => {
+                        lock = true;
+                    }, 500);
+                }
+
+                // 右按钮的实现
+                oRight.addEventListener("click", handleRightBtn);
+
+                // 左按钮的实现  瞬间切换到假图然后拉到真实最后一张图片
+                oLeft.addEventListener("click", () => {
+                    if (!lock) return;
+                    index--;
+                    if (index === -1) {
+                        oImgList.style.left = 5 * -668 + "px";
+                        oImgList.style.transition = "none";
+                        index = 4;
+                        setTimeout(() => {
+                            oImgList.style.left = index * -668 + "px";
+                            oImgList.style.transition = "0.5s ease";
+                        }, 0);
+                    } else {
+                        oImgList.style.left = index * -668 + "px";
+                    }
+
+                    // 设置小圆点的高亮
+                    setCircles();
+
+                    lock = false;
+                    setTimeout(() => {
+                        lock = true;
+                    }, 500);
+                });
+
+                // 获取五个小圆点
+                const circles = document.querySelectorAll(".circle");
+
+                // 小圆点高亮的显示
+                function setCircles() {
+                    for (let i = 0; i < circles.length; i++) {
+                        if (i === index) {
+                            circles[i].classList.add("active");
+                        } else {
+                            circles[i].classList.remove("active");
+                        }
+                    }
+                }
+
+                // 小圆点点击切换图片 使用事件代理
+                const oCircle = document.querySelector(".circle-list");
+                oCircle.addEventListener("click", (e) => {
+                    // 当我点击小圆点的时候
+                    if (e.target.nodeName.toLowerCase() === "li") {
+                        // 当前元素的data-n对应得值 和index一一对应
+                        const n = Number(e.target.getAttribute("data-n"));
+                        index = n;
+                        setCircles();
+                        oImgList.style.transition = "0.5s ease";
+                        oImgList.style.left = index * -668 + "px";
+                    }
+                });
+
+                // 自动轮播
+                let autoplay = setInterval(handleRightBtn, 2000);
+                const oWrap = document.getElementById("wrap");
+                // 移入停止轮播
+                oWrap.addEventListener("mouseenter", () => {
+                    clearInterval(autoplay);
+                });
+                // 移出继续轮播
+                oWrap.addEventListener("mouseleave", () => {
+                    // 设表先关
+                    clearInterval(autoplay);
+                    autoplay = setInterval(handleRightBtn, 2000);
+                });
+            });
+        </script>
+
+        <!-- 右侧图片 -->
+        <div class="topri"></div>
+
+        <!-- 轮播图下的长条图片 -->
+        <div class="longim"></div>
+
+        <!-- 介绍几个动漫 -->
+        <div class="dongman">
+            <div class="dongman1">comic</div>
+
+            <div class="dongman2">
+                <a href="#dm1">
+                    <div class="dongmana man1">
+                        <p>吸血鬼猎人D</p>
+                    </div>
+                </a>
+                <a href="#dm2">
+                    <div class="dongmana man2">
+                        <p>地狱之歌OVA</p>
+                    </div>
+                </a>
+                <a href="#dm3">
+                    <div class="dongmana man3">
+                        <p>死亡笔记</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 隔开部分 -->
+    <div class="gekai" id="dm1"></div>
+
+    <!-- 三个动漫介绍 -->
+    <div class="san">
+        <div class="san1">
+            <div class="imghid">
+                <div class="nei1"></div>
+            </div>
+            <div class="wenzi" id="xx">
+                《吸血鬼猎人D》是一部根据菊地秀行的同名系列奇幻小说改编的动画电影。<br />
+                动画摒弃了原作阴暗沉郁的气息，将整个故事描绘成一曲回肠荡气的爱情悲歌。并加入了不少原创情节，使登场人物更为血肉丰满。作品在角色设计上秉承了原作绘制插图的天野喜孝风格，天野瑰丽的特色与影片整体画面风格相得益彰，是一部浪漫唯美的幻想动画电影。
+            </div>
+        </div>
+        <div class="san2">
+            <div class="imghid">
+                <div class="nei2" id="dm2"></div>
+            </div>
+            <div class="wenzi" id="dy">
+                《地狱之歌-OVA》故事延续自著名的《吸血鬼德古拉》，HELLSING教授打倒了不死的德古拉之后，时间过了约100年，英国王立国教骑士团是专门歼灭对抗大英帝国和英国国教的反基督怪物的特殊机关，而其中的王牌是拿着常人无法使用的大口径手枪的吸血鬼阿尔卡特，在一次任务中转化了被狭持的女警西洛斯，之后两人就以主仆的关系进行任务。但是潜伏在历史阴影中的敌人也正在重整旗鼓...
+            </div>
+        </div>
+        <div class="san3">
+            <div class="imghid">
+                <div class="nei3" id="dm3"></div>
+            </div>
+            <div class="wenzi" id="sw">
+                《死亡笔记》主要讲的是大学生夜神月捡到死神的笔记本后用其消灭罪犯，并与天才少年侦探展开生死对决的故事。<br />
+                天才大学生夜神月捡到死神丢落在人间的笔记本，名字被写在这个本子上的人就会真的死去。之后，月使用笔记的力量不断杀死罪犯，国际刑警组织邀请神秘的名侦探L来到日本，夜神月与L展开了生死对决。
+            </div>
+        </div>
+    </div>
+
+    <!-- 钻石布局 -->
+    <!-- <div class="zuanshi">
+    <div class="zuanshi1"></div>
+</div> -->
+
+    <!-- 银翼杀手 -->
+    <div class="yinyi" id="yy">
+        <div class="rao">
+            <div class="rao1"></div>
+            <div class="rao2">
+                <h2>银翼杀手</h2>
+                <p>
+                    <!-- 作为一部80年代的科幻电影，《银翼杀手》将镜头聚焦于虚设2019年的洛杉矶，阴暗压抑的色彩基调突显以电影的冷寂悲情，人类与复制人间的生死博弈，成为了剧情的脉络，电影自身的故事情节实则并不复杂，但复杂的是那充沛的内在命题，对生命的渴望和关乎人性的哲思，让《银翼杀手》成为了永不过时的科幻经典。 -->
+                    剧情的脉络是人类与复制人间的生死博弈。电影充沛的内在命题，对生命的渴望和关乎人性的哲思，让《银翼杀手》成为了永不过时的科幻经典。
+                </p>
+                <span>Blade Runner</span>
+            </div>
+            <div class="rao3"></div>
+        </div>
+        <div class="yinyiwz">
+            <p>
+                I've seen things you people wouldn't believe.Attack ships on
+                fire off the shoulder of Orion.I've watched c-beams glitter
+                in the dark near the Tannhauser Gate.All those ... moments
+                will be lost in time, like tears...in rain.Time to die.
+            </p>
+            <h2>
+                我见过你们人类绝对无法置信的事物，我目睹了战船在猎户星座的端沿起火燃烧，我看着C射线在唐怀瑟之门附近的黑暗中闪耀，所有这些时刻，终将随时间消逝，就像眼泪消失在雨中。
+            </h2>
+            <span>————罗伊·巴蒂</span>
+        </div>
+    </div>
+
+    <!-- 底部页脚 -->
+    <footer class="yejiao">
+        <!-- PREV/NEXT -->
+        <div class="dibudh">
+            <a href="html/myself.html">
+                <span class="prev">←PREV</span>
+            </a>
+            <a href="html/secondary_page.html">
+                <span class="next">NEXT→</span>
+            </a>
+        </div>
+        <p>©Copyright&nbsp;|&nbsp;刘赢</p>
+        <!-- <p>只有坚持别人不能坚持，才能拥有别人不能拥有。</p> -->
+    </footer>
+
+    <!-- 返回顶部线 -->
+    <div class="db">
+        <!-- 返回顶部字体图标 -->
+        <a href="#" class="db1">
+            <i class="iconfont icon-jiantou-xiangshang"></i>
+        </a>
+    </div>
+
+    <!-- 右侧导航栏 -->
+    <div class="rightbar">
+        <a href="#">
+            <div class="rightbar1" style="color: pink">One</div>
+        </a>
+        <a href="html/secondary_page.html">
+            <div class="rightbar2">Two</div>
+        </a>
+        <a href="html/tertiary_page.html">
+            <div class="rightbar3">Three</div>
+        </a>
+        <a href="html/course.html">
+            <div class="rightbar4">Four</div>
+        </a>
+        <a href="html/tabs.html">
+            <div class="rightbar5">Five</div>
+        </a>
+        <a href="html/myself.html">
+            <div class="rightbar6">Six</div>
+        </a>
+    </div>
+</body>
+</html>

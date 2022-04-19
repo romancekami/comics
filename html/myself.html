@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>刘赢_自我介绍</title>
+    <link rel="stylesheet" href="../css/DiBuDaoHang.css" />
+    <style>
+        body {
+            background-color: #e6f2ff;
+        }
+        h1 {
+            display: inline-block;
+            margin-top: 0;
+            /* color: #4b161a; */
+        }
+
+        .tupian {
+            float: right;
+            width: 29%;
+            height: 280px;
+            border-radius: 5px 2px 2px 5px;
+            background: url(../images/myself/刘赢a.jpg) no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            text-align: center;
+            font-size: xx-large;
+            line-height: 75px;
+            color: brown;
+            transition: all 1s ease;
+            /* outline: 0px solid #c889ebe8; */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            /*图片模糊：*/
+            /* filter: blur(1px); */
+        }
+
+        .tupian::before {
+            /* position: absolute; */
+            float: right;
+            /* color: rgb(160, 69, 69); */
+            color: #f2f7ff;
+            content: "watch~";
+            width: 100%;
+            height: 100%;
+            /* background-color: rgb(126, 218, 154); */
+            background-color: #b077e9;
+            text-align: center;
+            line-height: 280px;
+            font-size: xx-large;
+            transition: all 1s ease 0.3s;
+        }
+        .tupian:hover::before {
+            width: 0;
+        }
+        .tupian:hover {
+            /* outline: 2000px solid #c27de78f; */
+            animation: bianda 1s 0.1s forwards;
+        }
+        @keyframes bianda {
+            0% {
+                outline: 0 solid #e7d8f7;
+                /* outline: 0 solid #7bdb5e49; */
+            }
+
+            100% {
+                outline: 2000px solid #e7d8f7;
+                /* outline: 2000px solid #7bdb5e49; */
+            }
+        }
+        hr:first-of-type {
+            width: 70%;
+        }
+        hr {
+            position: relative;
+            background-color: rgb(209, 131, 240);
+            height: 2px;
+            border: 0;
+            z-index: 0;
+        }
+        ol:first-of-type {
+            position: relative;
+            left: -16px;
+        }
+        .backtop {
+            display: inline-block;
+            background-color: rgba(10, 10, 0, 0.7);
+            box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            color: aliceblue;
+            padding: 5px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        .backtop:hover {
+            background-color: #b640f68f;
+            /* background-color: rgb(88, 212, 98); */
+            box-shadow: 1px 1px 3px 2px rgba(196, 137, 238, 0.527);
+            /* 鼠标移入移动1点点位置 */
+            position: relative;
+            left: 1px;
+            bottom: 1px;
+        }
+
+        /* 右侧导航栏 */
+        .rightbar {
+            position: fixed;
+            /* 设置8px的右边距 */
+            margin-right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            z-index: 3;
+            display: flex;
+            width: 50px;
+            height: 270px;
+            /* 设置主轴为y轴 */
+            flex-direction: column;
+            /* 在主轴竖着的y轴上居中显示 */
+            justify-content: center;
+            /* 设置单行时子元素在侧轴上从右到左排列 */
+            align-items: flex-end;
+            /* 设置颜色便于调试 */
+            background-color: bisque;
+            /* 利用opacity的继承性为子元素设置一点点透明度 */
+            opacity: 0.9;
+        }
+        .rightbar1,
+        .rightbar2,
+        .rightbar3,
+        .rightbar4,
+        .rightbar5,
+        .rightbar6 {
+            right: 0;
+            float: right;
+            width: 50px;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            font-weight: 700;
+            color: aliceblue;
+        }
+
+        .rightbar > a div[class^="rightbar"]:hover {
+            width: 60px;
+            transition: 0.3s;
+        }
+        /* .rightbar1 {
+        background-color: #e6172e;
+    }
+    .rightbar2 {
+        background-color: #2dc100;
+    }
+    .rightbar3 {
+        background-color: #1da1f2;
+    } */
+        .rightbar1 {
+            background-color: #7f3cb9;
+        }
+        .rightbar2 {
+            background-color: #8946c3;
+        }
+        .rightbar3 {
+            background-color: #9356c8;
+        }
+        .rightbar4 {
+            background-color: #9c65cd;
+        }
+        .rightbar5 {
+            background-color: #a674d2;
+        }
+        .rightbar6 {
+            background-color: #b084d7;
+        }
+
+        textarea {
+            /* color: #951f29; */
+            font-size: large;
+            font-family: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="top">刘赢</h1>
+    <div class="tupian">
+        <!-- <img src="images/刘赢a.jpg" alt="图片丢失了" /> -->
+        <strong>🧻🧻&#129531;✋</strong>
+    </div>
+    <h2>简介</h2>
+    <hr align="left" />
+    <p>
+        南通职业大学学生，目前在大二，数字媒体应用技术专业，最近因为疫情，本应该去学校上课，现在不得不居家上网课。<br /><br />不过感觉问题不大，到哪上都差不多，虽然居住地目前经常要求核酸检测，大早上去排队，<br />不过可以理解，因为防疫事关重大，为了人民群众的安全，我们需要积极抗疫！
+    </p>
+    <h2>经历</h2>
+    <hr />
+    <p>
+        刘赢，出生于浙江衢州的一家医院，小时候因为父母工作变动，四处奔走，最后定居在苏州。<br />
+        经过小学6年，初中3年，中考，高中3年，高考之后来到了南通上大专，现在不知不觉21岁了。
+    </p>
+    <h2>人物关系</h2>
+    <hr />
+    <ol type="i">
+        <li>父亲：xxx(来自安徽)</li>
+        <li>母亲：xxx(来自浙江)</li>
+        <li>表哥：xxx(来自浙江)</li>
+        <li>老舅：xxx(来自浙江)</li>
+        <li>大姨：xxx(来自浙江)</li>
+    </ol>
+    <h2>技能</h2>
+    <hr />
+    <h3>学习</h3>
+    <p>
+        每天有一定的学习时间。<br />
+        时间：不定，自己当然是希望多些。<br />
+        状态：时好时坏。<br />
+    </p>
+    <h3>吃饭</h3>
+    <p>
+        每天坚持吃饭，虽然有时早有时晚。<br />
+        时间：不定，自己希望吃快点。<br />
+        状态：多少得吃点。<br />
+    </p>
+    <h3>踢足球</h3>
+    <p>
+        偶尔去踢踢足球，虽然经常被队车吊打，但作为散客早已习惯。<br />
+        时间：一般在晚上。<br />
+        状态：时好时坏，目前基本没有很好的状态。<br />
+    </p>
+
+    <hr />
+    <br />
+    <!-- 评论表单 -->
+    <form action="#">
+        <p>
+            <strong>是否喜欢本站:</strong>
+            <label for="xihuan"
+                ><input
+                    type="radio"
+                    name="xihuan"
+                    id="xihuan"
+                    checked
+                />喜欢🥰</label
+            >&nbsp;
+            <label for="buxihuan"
+                ><input
+                    type="radio"
+                    name="xihuan"
+                    id="buxihuan"
+                    onclick="alert('💔💔💔')"
+                />不喜欢😅</label
+            >
+        </p>
+        <p><strong>评论一下：</strong></p>
+        <textarea
+            name="#"
+            id=""
+            cols="60
+    "
+            rows="12"
+            placeholder="有啥想说的🎤"
+        ></textarea
+        ><br />
+        <!-- type="button"取消button单击返回顶部的情况 -->
+        <button onclick="alert('感谢评论~')" type="button">提交</button>
+    </form>
+    <br />
+
+    <a href="#top">
+        <div class="backtop">返回顶部</div>
+    </a>
+
+    <!-- 右侧导航栏 -->
+    <div class="rightbar">
+        <a href="../index.html">
+            <div class="rightbar1">One</div>
+        </a>
+        <a href="secondary_page.html">
+            <div class="rightbar2">Two</div>
+        </a>
+        <a href="tertiary_page.html">
+            <div class="rightbar3">Three</div>
+        </a>
+        <a href="course.html">
+            <div class="rightbar4">Four</div>
+        </a>
+        <a href="tabs.html">
+            <div class="rightbar5">Five</div>
+        </a>
+        <a href="#">
+            <div class="rightbar6" style="color: pink">Six</div>
+        </a>
+    </div>
+
+    <!-- PREV/NEXT -->
+    <div class="dibudh">
+        <a href="tabs.html">
+            <span class="prev">←PREV</span>
+        </a>
+        <a href="../index.html">
+            <span class="next">NEXT→</span>
+        </a>
+    </div>
+
+    <!-- js在鼠标移入watch~时定时变换文字颜色 -->
+    <script>
+        // 鼠标移入定时100毫秒后变化文字颜色
+        // var biaoti = document.querySelector("h1");
+        var bianse = document.querySelector(".tupian");
+        var bodyEle = document.body;
+        bianse.addEventListener("mouseover", function () {
+            setTimeout(function () {
+                bodyEle.style.color = "#681c22";
+            }, 100);
+        });
+
+        bianse.addEventListener("mouseout", function () {
+            bodyEle.style.color = "black";
+        });
+        // document.getElementsByTagName('h1')[0].style.color = "blue";
+        // biaoti.style.color = "blue";
+    </script>
+</body>
+</html>

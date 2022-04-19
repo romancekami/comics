@@ -1,0 +1,97 @@
+/* rom渐变 */
+.rom {
+    position: relative;
+    /* background-color: #ad84c97e; */
+    color: #414088;
+    overflow: hidden;
+}
+
+.rom::before {
+    content: "";
+    position: absolute;
+    /* top: -100px; */
+    left: 0;
+    width: 400px;
+    height: 50px;
+    /* 这边从上到下给个由透明到白色再到透明的渐变 */
+    background: linear-gradient(
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0)
+    );
+    transform: rotate(45deg) translate(0, 200px);
+    transition: 0.8s;
+}
+.rom:hover::before {
+    transform: rotate(45deg) translate(0, -100px);
+    /* transition: 3s; */
+}
+.rom::after {
+    font-weight: 600;
+    content: "Rom";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: transparent;
+    /* 将颜色剪切到文字中 */
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* 从左到右给个颜色渐变 */
+    background-image: linear-gradient(
+        to right,
+        #381d1d,
+        #5e2222,
+        #381d1d,
+        #5e2222,
+        #381d1d
+    );
+    /* clip-path: circle(6% at 50% 55%); */
+    /* infinite无限循环运动 */
+    animation: move1 7.2s infinite ease;
+}
+@keyframes move1 {
+    /* circle是将元素剪切为一个圆形，如clip-path: circle(6% at 36% 55%)，6%这里表示圆的直径是父元素的6%，36% 55%表示圆心(x,y)的位置，x是父元素宽从左到右边36%，y是父元素高度100px从上往下55%。 */
+    /* 通过x轴坐标百分数的变化实现圆心位置的移动 */
+    0% {
+        clip-path: circle(7% at 75% 60%);
+    }
+    25% {
+        clip-path: circle(16% at 50% 57%);
+    }
+    50% {
+        clip-path: circle(7% at 25% 57%);
+    }
+    75% {
+        clip-path: circle(16% at 50% 57%);
+    }
+    100% {
+        clip-path: circle(7% at 75% 60%);
+    }
+    /* 0% {
+        clip-path: circle(7% at 25% 57%);
+    }
+    25% {
+        clip-path: circle(16% at 50% 57%);
+    }
+    50% {
+        clip-path: circle(7% at 75% 60%);
+    }
+    75% {
+        clip-path: circle(16% at 50% 57%);
+    }
+    100% {
+        clip-path: circle(7% at 25% 55%);
+    } */
+
+    /* 50% {
+        clip-path: circle(10% at 65% 55%);
+    } */
+    /* 100% {
+        clip-path: circle(16% at 85% 55%);
+    } */
+    /* 100% {
+        clip-path: circle(6% at 36% 55%);
+    } */
+}

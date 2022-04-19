@@ -1,0 +1,58 @@
+.genzong {
+    /* background-color: bisque; */
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 56px;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+.genzong:hover {
+    opacity: 0.95;
+}
+.genzong > a {
+    height: 50px;
+    width: 56px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: rgba(148, 116, 216, 0.8);
+    text-align: center;
+    line-height: 50px;
+    border-radius: inherit;
+    display: block;
+}
+.yidong {
+    /* display: flex; */
+    position: absolute;
+    /* 这个index: -1非常重要 */
+    z-index: -1;
+    top: 0;
+    /* right: 0; */
+    width: 56px;
+    height: 50px;
+    background-color: rgb(130, 20, 233);
+    border-radius: inherit;
+    transition: 0.5s;
+}
+.genzong a:nth-of-type(2):hover ~ .yidong{
+    top: 50px;
+}
+.genzong a:nth-of-type(3):hover ~ .yidong {
+    top: 100px;
+}
+.genzong a:nth-of-type(4):hover ~ .yidong {
+    top: 150px;
+}
+.genzong a:nth-of-type(5):hover ~ .yidong {
+    top: 200px;
+}
+.genzong a:nth-of-type(6):hover ~ .yidong {
+    top: 250px;
+}

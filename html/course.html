@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程表</title>
+    <link rel="stylesheet" href="../css/DiBuDaoHang.css">
+    <link rel="stylesheet" href="../css/BackToTop.css">
+    <link rel="stylesheet" href="../css/DaoHangLan.css">
+    <!-- 引入Font class字体图标 -->
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3061954_8i7vuqee1mn.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            /* background-color: #333; */
+            background: url(../images/course/背景2.jpg) no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .a {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.6);
+            max-width: 1080px;
+            height: 1170px;
+            margin: auto;
+            margin-bottom: 170px;
+            border-radius: 15px;
+            animation: shangyi 1.2s -0.6s linear forwards;
+        }
+
+        .biaoge {
+            position: absolute;
+            background: rgba(150, 146, 146,.75);
+            left: 0;
+            right: 0;
+            margin: auto; 
+            padding: 5px;
+            border-radius: 5px;
+            border: 5px solid rgb(0, 0, 0);
+            border-spacing: 3px 3px;
+        }
+
+        .biaoge1 {
+            margin-top: 100px;
+            width: 87%;
+        }
+
+        .biaoge2 {
+            margin-top: 650px;
+            width: 87%;
+        }
+
+        /* 为表格外面的div定义一个上移动画 */
+        @keyframes shangyi {
+            0% {
+                top: 400px;
+            }
+            25% {
+                top: 300px
+            }
+            50% {
+                top: 200px
+            }
+            75% {
+                top: 100px
+            }
+            100% {
+                top: 20px;
+            }
+        }
+
+        .biaotou {
+            font-size: xx-large;
+            /* border-bottom: 0; */
+        }
+
+        td,th {
+            text-align: center;
+            padding: 10px 5px 10px 5px;
+        }
+
+        th:hover,td:hover {
+            background-color:rgb(117, 130, 172,.7);
+            color: blanchedalmond;
+        }
+
+        .dibu {
+            position: absolute;
+        } 
+
+        .prev:hover,
+        .next:hover {
+            color: #48245ae8;
+        }
+
+        .db {
+            top: 0;
+            background-color: #2cabdde8;
+            /* z-index: 4; */
+        }
+        .db1 {
+            color: #3cbaecea;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="a">
+        <!-- 课程表 -->
+        <table border="1" class="biaoge biaoge1">
+            <tr><td class="biaotou" colspan="9">课程表</td></tr>
+            <tr>
+                <th colspan="5" align="left">数媒203班</th>
+                <th colspan="2" align="left">班级代码: 2009603</th>
+                <th colspan="2" align="right">第二学期</th>
+            </tr>
+
+            <tr>
+                <th colspan="2">节次/周</th>
+                <th>星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+                <th>星期六</th>
+                <th>星期日</th>
+            </tr>
+
+            <tr>
+                <td rowspan="3">上午</td>
+                <td>第一节</td>
+                <td>交互设计</td>
+                <td>HTML5应用开发</td>
+                <td>后期合成</td>
+                <td>HTML5应用开发</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td>第二三节</td>
+                <td>交互设计基础</td>
+                <td>HTML5应用开发</td>
+                <td>后期合成</td>
+                <td>HTML5应用开发</td>
+                <td>体育</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td>第四五节</td>
+                <td>交互设计基础</td>
+                <td>HTML5应用开发</td>
+                <td>后期合成</td>
+                <td>HTML5应用开发</td>
+                <td>职业发展与就业指导</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">下午</td>
+                <td>第六七节</td>
+                <td>后期合成</td>
+                <td>用户体验设计</td>
+                <td></td>
+                <td>交互设计基础</td>
+                <td></td>
+                <td>商业设计</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td>第八九节</td>
+                <td>后期合成</td>
+                <td>用户体验设计</td>
+                <td></td>
+                <td>交互设计基础</td>
+                <td></td>
+                <td>商业设计</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td rowspan="1">晚上</td>
+                <td>第十节</td>
+                <td></td>
+                <td></td>
+                <td>用户体验设计</td>
+                <td></td>
+                <td></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+
+        <table class="biaoge biaoge2" border="1">
+            <tr>
+                <th>7:20</th>
+                <td>起床</td>
+            </tr>
+
+            <tr>
+                <th>7:30</th>
+                <td>吃早饭</td>
+            </tr>
+
+            <tr>
+                <th>7:50</th>
+                <td>上课</td>
+            </tr>
+            
+            <tr>
+                <th>12:00</th>
+                <td>吃午饭</td>
+            </tr>
+            
+            <tr>
+                <th>14:00</th>
+                <td>上课</td>
+            </tr>
+            
+            <tr>
+                <th>17:10</th>
+                <td>下课</td>
+            </tr>
+            
+            <tr>
+                <th>18:20</th>
+                <td>吃晚饭</td>
+            </tr>
+
+            <tr>
+                <th>12:00</th>
+                <td>睡觉</td>
+            </tr>
+        </table>
+
+        <!-- PREV/NEXT -->
+        <div class="dibudh dibu">
+            <a href="tertiary_page.html">
+                <span class="prev">←PREV</span>
+            </a>
+            <a href="tabs.html">
+                <span class="next">NEXT→</span>
+            </a>
+        </div>
+            
+    </div>
+
+    <!-- 返回顶部线 -->
+    <div class="db">
+        <!-- 返回顶部字体图标 -->
+        <a href="#" class="db1">
+            <i class="iconfont icon-jiantou-xiangshang"></i>
+        </a>
+    </div>
+
+    <!-- 右侧导航栏 -->
+    <div class="rightbar">
+        <a href="../index.html">
+            <div class="rightbar1">One</div>
+        </a>
+        <a href="secondary_page.html">
+            <div class="rightbar2">Two</div>
+        </a>
+        <a href="tertiary_page.html">
+            <div class="rightbar3">Three</div>
+        </a>
+        <a href="#">
+            <div class="rightbar4" style="color: pink;">Four</div>
+        </a>
+        <a href="tabs.html">
+            <div class="rightbar5">Five</div>
+        </a>
+        <a href="myself.html">
+            <div class="rightbar6">Six</div>
+        </a>
+    </div>
+</body>
+</html>

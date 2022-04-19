@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>二级页面</title>
+    <link rel="stylesheet" href="../css/DaoHangLan.css" />
+    <link rel="stylesheet" href="../css/DiBuDaoHang.css" />
+    <link rel="stylesheet" href="../css/渐变文字.css" />
+    <link rel="stylesheet" href="../css/面包屑.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #ebddfe;
+        }
+
+        .wai {
+            width: 84%;
+            background-color: #edf2fb;
+            /* 让剑风传奇黄金时代篇等内容居中 */
+            text-align: center;
+            /* 让自己居中 */
+            margin: 0 auto;
+            /* margin-top: 8px; */
+            display: flex;
+            flex-direction: column;
+            /* 让子元素在侧轴上居中 */
+            align-items: center;
+        }
+
+        /* 顶部Cartoon */
+        .sch {
+            width: 80%;
+        }
+        /* .sch::after {
+        top: 8px;
+        } */
+
+        #jfcq {
+            background-color: #d7c8f3;
+            height: 50px;
+            font-size: xx-large;
+            font-weight: 700;
+            color: #5e2222;
+            line-height: 50px;
+            padding-bottom: 5px;
+            width: 80%;
+            margin: 0 auto;
+            letter-spacing: 4px;
+        }
+        .shuifen:hover {
+            /* outline: 3000px groove #e7d8f7; */
+            box-shadow: 2px 2px 6px 1px #b88ae6;
+            /* 阴影出现经过0.4s，0.1s后开始出现 */
+            /* 鼠标进入切换图片*/
+            content: url(../images/secondary_page/剑风传奇.jpg);
+            transition: all 0.3s;
+        }
+        #gaikuang {
+            font-weight: 700;
+            font-size: x-large;
+            /* background-color: #ffffe0; */
+            height: 30px;
+            line-height: 30px;
+            color: #5e2222;
+            width: 60%;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #5e2222;
+            margin: 10px 0 auto;
+        }
+        p {
+            margin: 10px auto;
+        }
+
+        .juqing {
+            border-bottom: 2px dashed #5e2222;
+            width: 60%;
+            margin-top: 20px;
+            padding-bottom: 10px;
+            color: #5e2222;
+        }
+        .jqjj {
+            width: 60%;
+            text-align: left;
+            margin: 20px auto 15px;
+            /* 设置段落内行间距 */
+            /* line-height: 4em; */
+            font: 18px/2em "宋体";
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #5e2222;
+        }
+
+        /* 黑白百叶窗 */
+        .a {
+            width: 80%;
+            height: 310px;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            background-color: rgb(186, 141, 228);
+        }
+
+        .b {
+            overflow: hidden;
+            transition: 0.3s;
+            /*这里是为了在宽屏上填充空隙,与.b img里的flex-grow配和使用*/
+            /* flex-grow: 1; */
+            /* display: flex; */
+        }
+
+        .b:hover {
+            /* 如果剩余空间不够,0元素不缩小,默认1元素缩小 */
+            flex-shrink: 0;
+            /* 如有有剩余空间,1元素扩大,默认0不扩大 */
+            /* flex-grow: 1; */
+        }
+
+        .b img {
+            width: 239px;
+            height: 310px;
+            /* 这里是为了在宽屏上填充空隙 */
+            /* flex-grow: 1; */
+        }
+
+        /* 彩色百叶窗 */
+        .baiye {
+            /* width: 1000px; */
+            width: 80%;
+            height: 310px;
+            background-color: thistle;
+        }
+
+        .baiye1 {
+            width: 100%;
+            /* background-color: aqua; */
+            height: 310px;
+            /* 溢出的图片隐藏 */
+            overflow: hidden;
+            list-style: none;
+            /* 利用flex布局默认阻止图片换行 */
+            display: flex;
+        }
+
+        .baiye1 li {
+            position: relative;
+            float: left;
+            /* 6张图，5个li，每个li占据父ul——.baiye1的16.67%宽度,ul的宽度是100%的div*/
+            width: 16.67%;
+            height: 310px;
+            /* 控制hover时li变化的时间 */
+            transition: all 0.3s;
+        }
+
+        /* 怀疑在宽屏上显示会有问题，最后一张图hover的时候可能会露出底部颜色
+        设置仅在1400px屏幕宽度内彩色百叶窗有效果 */
+        @media (max-width: 1400px) {
+            .baiye1:hover li {
+                /* 外层ul在hover时减小所有li的宽度，为下面那个单独变大的li提供空间 */
+                /* 这个和下面两个width值感觉不好调，在大屏显示器上可能会产生问题，目前我笔记本上没问题 */
+                /* width: 165px; */
+                width: 15%;
+            }
+
+            .baiye1 li:hover {
+                /* 鼠标悬停到某一个li时,这个li变成图片的宽度，则完全显示图片 */
+                /* 利用css层叠让那个原本因为外层ul在hover时减小的li全部展现出来 */
+                width: 235px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 右侧导航栏 -->
+    <div class="rightbar">
+        <a href="../index.html">
+            <div class="rightbar1">One</div>
+        </a>
+        <a href="#">
+            <div class="rightbar2" style="color: pink">Two</div>
+        </a>
+        <a href="tertiary_page.html">
+            <div class="rightbar3">Three</div>
+        </a>
+        <a href="course.html">
+            <div class="rightbar4">Four</div>
+        </a>
+        <a href="tabs.html">
+            <div class="rightbar5">Five</div>
+        </a>
+        <a href="myself.html">
+            <div class="rightbar6">Six</div>
+        </a>
+    </div>
+
+    <!-- 内容区域 -->
+    <div class="wai" id="jf">
+        <!-- 顶部动画主题栏 -->
+        <div class="sch">CARTOON</div>
+
+        <!-- 黑白百叶窗 -->
+        <div class="a">
+            <div class="b">
+                <img
+                    src="../images/secondary_page/黑白 (1).jpg"
+                    alt="图丢失"
+                />
+            </div>
+            <div class="b">
+                <img
+                    src="../images/secondary_page/黑白 (2).jpg"
+                    alt="图丢失"
+                />
+            </div>
+            <div class="b">
+                <img
+                    src="../images/secondary_page/黑白 (3).jpg"
+                    alt="图丢失"
+                />
+            </div>
+            <div class="b">
+                <img
+                    src="../images/secondary_page/黑白 (4).jpg"
+                    alt="图丢失"
+                />
+            </div>
+            <div class="b">
+                <img
+                    src="../images/secondary_page/黑白 (5).jpg"
+                    alt="图丢失"
+                />
+            </div>
+            <div class="b">
+                <img
+                    src="../images/secondary_page/黑白 (6).jpg"
+                    alt="图丢失"
+                />
+            </div>
+        </div>
+
+        <!-- 彩色百叶窗 -->
+        <div class="baiye">
+            <ul class="baiye1">
+                <li>
+                    <img
+                        src="../images/secondary_page/彩色 (1).jpg"
+                        alt="图丢失"
+                        width="235px"
+                        height="310px"
+                    />
+                </li>
+                <li>
+                    <img
+                        src="../images/secondary_page/彩色 (2).jpg"
+                        alt="图丢失"
+                        width="235px"
+                        height="310px"
+                    />
+                </li>
+                <li>
+                    <img
+                        src="../images/secondary_page/彩色 (3).jpg"
+                        alt="图丢失"
+                        width="235px"
+                        height="310px"
+                    />
+                </li>
+                <li>
+                    <img
+                        src="../images/secondary_page/彩色 (4).jpg"
+                        alt="图丢失"
+                        width="235px"
+                        height="310px"
+                    />
+                </li>
+                <li>
+                    <img
+                        src="../images/secondary_page/彩色 (5).jpg"
+                        alt="图丢失"
+                        width="235px"
+                        height="310px"
+                    />
+                </li>
+                <li>
+                    <img
+                        src="../images/secondary_page/彩色 (6).jpg"
+                        alt="图丢失"
+                        width="235px"
+                        height="310px"
+                    />
+                </li>
+            </ul>
+        </div>
+
+        <!-- 内容开始 -->
+        <p id="jfcq">剑风传奇黄金时代篇</p>
+        <img
+            class="shuifen"
+            src="../images/secondary_page/glfse.jpg"
+            alt="剑风传奇图"
+            width="80%"
+            height="400px"
+        />
+        <p id="gaikuang">概况</p>
+        <p>导演：洼冈俊之</p>
+        <p>类型：热血 | 冒险</p>
+        <p>别名：剑风传奇 剧场版</p>
+        <p>制片地区：日本</p>
+        <p>出品年份：2012年</p>
+        <p>上映时间：2013年2月1日 日本</p>
+        <p>主角：格斯，格里菲斯</p>
+        <p>原作者：三浦建太郎</p>
+        <h2 class="juqing">剧情简介</h2>
+        <p class="jqjj">
+            剑风传奇黄金时代篇是动漫《剑风传奇》的剧场版，取材自漫画版的黄金时代篇，共分为3部。
+            百年战争，世事颠倒，人心糜烂，贪欲横行。各国之间兼并攻伐，血流成河。名叫格斯的男子（岩永洋昭
+            配音）凭藉一己之力在佣兵中打出名号，也引起另一个强大男人的观注。不久，他遭遇了令人闻风丧胆的佣兵部队“鹰之团”及其具有超凡魅力和实力的领导者统治者格里菲斯（樱井孝宏
+            配音）。格斯在挑战格里菲斯的战斗中败北，此后加入鹰之团，成为其中最为骁勇的战将。在连番激烈的战斗中，他与战友建立起坚不可摧的友情，更得到格里菲斯的赏识，后者甚至不顾自己的安全拯救被恶魔佐德折磨的格斯。但随着鹰之团成为米特兰王国的正规军，以及格里菲斯被封为贵族，淳朴的战友之情开始蒙上阴谋的鬼影……
+        </p>
+
+        <!-- 面包屑 -->
+        <div class="bread" style="margin-bottom: 35px">
+            <a href="../index.html">Home</a>
+            <span>&gt;</span>
+            <a href="#">Cartoon</a>
+            <span>&gt;</span>
+            <a href="breadjs.html">Details</a>
+        </div>
+
+        <!-- PREV/NEXT -->
+        <div class="dibudh">
+            <a href="../index.html">
+                <span class="prev">←PREV</span>
+            </a>
+            <a href="tertiary_page.html">
+                <span class="next">NEXT→</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

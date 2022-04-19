@@ -1,0 +1,63 @@
+/* 右侧导航栏 */
+.rightbar {
+    position: fixed;
+    /* 设置8px的右边距 */
+    margin-right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    z-index: 3;
+    display: flex;
+    width: 50px;
+    height: 200px;
+    /* 设置主轴为y轴 */
+    flex-direction: column;
+    /* 在主轴竖着的y轴上居中显示 */
+    justify-content: center;
+    /* 设置单行时子元素在侧轴上从右到左排列 */
+    align-items: flex-end;
+    /* 设置颜色便于调试 */
+    /* background-color: bisque; */
+    /* 利用opacity的继承性为子元素设置一点点透明度 */
+    opacity: 0.9;
+}
+
+.rightbar1,
+.rightbar2,
+.rightbar3,
+.rightbar4,
+.rightbar5,
+.rightbar6 {
+    right: 0;
+    float: right;
+    width: 50px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-weight: 700;
+    color: aliceblue;
+}
+
+.rightbar > a div[class^="rightbar"]:hover {
+    width: 60px;
+    transition: 0.3s;
+}
+
+.rightbar1 {
+    background-color: #7f3cb9;
+}
+.rightbar2 {
+    background-color: #8946c3;
+}
+.rightbar3 {
+    background-color: #9356c8;
+}
+.rightbar4 {
+    background-color: #9c65cd;
+}
+.rightbar5 {
+    background-color: #a674d2;
+}
+.rightbar6 {
+    background-color: #b084d7;
+}

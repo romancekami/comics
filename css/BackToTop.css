@@ -1,0 +1,36 @@
+/* 返回顶部 */
+/* .db {
+    position: fixed;
+    left: 60px;
+    width: 3px;
+    height: 85vh;
+    background-color: pink;
+}
+
+.db1 {
+    position: fixed;
+    top: 84.3vh;
+    left: 60px;
+    margin-left: -11px;
+    color: pink;
+    text-decoration: none;
+} */
+/* 返回顶部 */
+.db {
+    top: 0;
+    position: fixed;
+    left: 4.5%;
+    width: 3px;
+    height: 85vh;
+    background-color: pink;
+}
+
+.db1 {
+    position: fixed;
+    top: 84.4vh;
+    left: 4.5%;
+    /* margin-left: -1%; */
+    transform: translateX(-45.8%);
+    color: pink;
+    text-decoration: none;
+}
